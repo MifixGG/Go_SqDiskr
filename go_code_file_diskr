@@ -1,0 +1,46 @@
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func main() {
+	var a float64
+	var b float64
+	var c float64
+	fmt.Println("Решение квадратного уравнения")
+	//Присваивание значений переменным
+	fmt.Println("Коэффициент a: ")
+	fmt.Scan(&a)
+
+	fmt.Println("Коэффициент b: ")
+	fmt.Scan(&b)
+
+	fmt.Println("Коэффициент c: ")
+	fmt.Scan(&c)
+	fmt.Println(discr(a, b, c))
+}
+
+func discr(a float64, b float64, c float64) (float64, float64) {
+	var x1 float64
+	var x2 float64
+	d := (b * b) - 4*(a*c)
+	if d < 0 {
+		x1 = (-b + math.Sqrt(d)) / (2 * a)
+		x2 = (-b + math.Sqrt(d)) / (2 * a)
+		fmt.Println("В уравнении нет корней\n", "d =", d)
+	} else if d > 0 {
+
+		x1 = (-b + math.Sqrt(d)) / (2 * a)
+		x2 = (-b - math.Sqrt(d)) / (2 * a)
+		fmt.Println("В уравнении 2 корня\n", "d =", d)
+	} else if d == 0 {
+		x1 = (-b + math.Sqrt(d)) / (2 * a)
+		x2 = (-b + math.Sqrt(d)) / (2 * a)
+		fmt.Println("В уравнении 1 корень - первый\n", "d =", d)
+	}
+	fmt.Println()
+	return x1, x2
+
+}
